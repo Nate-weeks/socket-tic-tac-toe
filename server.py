@@ -30,10 +30,10 @@ print "the number is {}".format(random_number)
 clientsocket.send("hello, lets play a guessing game, pick a number 1-6")
 for i in range(1, 6): # max of 6 guesses
     data = clientsocket.recv(1024)  # what is this 10? bytes?
-    clientsocket.send("Guess {}: {}\n".format(i, data))
     if data == str(random_number):
         clientsocket.send("You guessed correct! the number was {}, closing connection".format(data))
         break
+    clientsocket.send("Guess {}: {}\n".format(i, data))
 
 clientsocket.close()
 #
