@@ -9,15 +9,15 @@ from threading import Thread
 from game import *
 import socket
 import random
-from threadtest import *
 
 def initiateSocket():
     ''' function to initiate a socket and spawn a thread for each connection to run'''
     port = 12345
     server = socket.socket()
     server.bind(('', port))
+    print "listening on port {}".format(port)
     while True:
-        server.listen(5)
+        server.listen(1)
         (clientsocket, addr) = server.accept()
         thread1 = Thread(target=initiateGame, args=(clientsocket, ))
         thread1.start()

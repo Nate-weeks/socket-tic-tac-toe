@@ -25,7 +25,16 @@ class Game(object):
     def dealPlayer(self):
         '''deals the player and plays out the hand, asking to hit or stand
         and printing out the score and cards contained in the players hand'''
-        self.clientsocket.send("hello, let's play a game of blackjack, you were dealt the {}, your score is {}".format(self.getPlayerHand().getString(), self.getPlayerHand().score()))
+        self.clientsocket.send("hello, let's play a game of blackjack")
+        response = self.clientsocket.recv(1024)
+        while response != "confirmed":
+            self.cliensocket.send("hello, let's play a game of blackjack")
+            response = self.clientsocket.recv(1024)
+        self.clientsocket.send("you were dealt the {}, your score is {}".format(self.getPlayerHand().getString(), self.getPlayerHand().score()))
+        response = self.clientsocket.recv(1024)
+        while response != "confirmed":
+            self.clientsocket.send("you were dealt the {}, your score is {}".format(self.getPlayerHand().getString(), self.getPlayerHand().score()))
+            response = self.clientsocket.recv(1024)
         self.hitOrStand()
 
     def hitOrStand(self):
