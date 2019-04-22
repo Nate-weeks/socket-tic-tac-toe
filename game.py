@@ -9,14 +9,12 @@ class Game(object):
     '''Object to play a game of blackjack, initializes the
     player_hand, computer_hand and deck of cards'''
     def __init__(self, clientsocket):
-        self.deck = Deck()
-        self.player_hand = Hand(self.deck.deal(), self.deck.deal())
-        self.computer_hand = Hand(self.deck.deal(), self.deck.deal())
+        self.board = [["1","2","3"],["4","5","6"],["7","8","9"]]
         self.clientsocket = clientsocket
 
-    def getPlayerHand(self):
-        '''returns the player_hand'''
-        return self.player_hand
+    def getBoard(self):
+        '''returns the board'''
+        return self.board
 
     def getComputerHand(self):
         '''returns the computer_hand'''
