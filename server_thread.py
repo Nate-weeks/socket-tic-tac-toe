@@ -1,12 +1,12 @@
 '''
 server_thread.py
-A program to set up a socket server to play blackjack with a client in a
+A program to set up a socket server to play tictactoe with a client in a
 multi-threaded environment
-Nate Weeks, April 2018
+Nate Weeks, April 2019
 '''
 
 from threading import Thread
-from game import *
+from tictactoe import *
 import socket
 import random
 

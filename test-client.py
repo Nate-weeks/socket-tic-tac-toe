@@ -1,3 +1,8 @@
+'''
+A program to spoof outputs from a client and test the TicTacToe server
+Nate Weeks, April 2019
+'''
+
 # Import socket module
 import socket
 
